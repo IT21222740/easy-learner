@@ -79,4 +79,16 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     session.startTransaction();
     return session;
   }
+
+  async deleteOne(filterQuery: FilterQuery<TDocument>) {
+    const result = await this.model.deleteOne(filterQuery);
+
+    if (result.deletedCount === 0) {
+      this.logger.warn('No document found to delete with filterQuery', filterQuery);
+      throw new NotFoundException('Document not found to delete.');
+    }
+
+    return result;
+  }
+
 }

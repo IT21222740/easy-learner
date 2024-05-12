@@ -7,4 +7,10 @@ export class CreateUserRequest {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  @IsNotEmpty()
+  name:string;
+
+  isAdmin : boolean
+
 }

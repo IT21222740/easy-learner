@@ -5,13 +5,13 @@ import { AbstractRepository } from '@app/common';
 import { User } from './schemas/user.schema';
 
 @Injectable()
-export class UsersRepository extends AbstractRepository<User> {
-  protected readonly logger = new Logger(UsersRepository.name);
+export class UserRepository extends AbstractRepository<User> {
+  protected readonly logger = new Logger(UserRepository.name);
 
   constructor(
     @InjectModel(User.name) userModel: Model<User>,
-    @InjectConnection() connection: Connection,
+    @InjectConnection() conn: Connection,
   ) {
-    super(userModel, connection);
+    super(userModel, conn);
   }
 }

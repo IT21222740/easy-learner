@@ -4,13 +4,13 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { UsersRepository } from './users.repository';
+import { UserRepository } from './users.repository';
 import { CreateUserRequest } from './dto/create-user.request';
 import { User } from './schemas/user.schema';
 
 @Injectable()
-export class UsersService {
-  constructor(private readonly usersRepository: UsersRepository) {}
+export class UserService {
+  constructor(private readonly usersRepository: UserRepository) {}
 
   async createUser(request: CreateUserRequest) {
     await this.validateCreateUserRequest(request);
@@ -46,4 +46,14 @@ export class UsersService {
   async getUser(getUserArgs: Partial<User>) {
     return this.usersRepository.findOne(getUserArgs);
   }
+
+  async getEveryusers(){
+    return this.usersRepository.find({});
+   }
+   async deleteUsersById(id: string) {
+    const deletedUser = await this.usersRepository.deleteOne({ _id: id });
+
+  return { message: 'User deleted successfully' };
+  }
+
 }
