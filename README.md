@@ -1,4 +1,4 @@
-# Easy Learner Docker Deployment Guide
+# Academia Docker Deployment Guide
 
 This guide will walk you through the process of deploying the Academia application using Docker.
 
