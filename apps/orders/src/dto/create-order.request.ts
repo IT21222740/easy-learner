@@ -8,6 +8,8 @@ import {
 
 export class CreateOrderRequest {
   @IsString()
+  course_id: string;
+  @IsString()
   course_name: string;
   @IsNotEmpty()
   price: number;

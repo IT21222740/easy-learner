@@ -4,6 +4,8 @@ import { AbstractDocument } from '@app/common';
 @Schema({ versionKey: false })
 export class Order extends AbstractDocument {
   @Prop()
+  course_id: string;
+  @Prop()
   course_name: string;
 
   @Prop()

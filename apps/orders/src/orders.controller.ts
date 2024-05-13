@@ -88,22 +88,22 @@ export class OrdersController {
     return await this.ordersService.getOrders();
   }
 
-  @Get('my-orders:email')
+  @Get('my-orders/:email')
   async getMyOrders(@Param('email') email: string) {
     return await this.ordersService.getOrderById(email);
   }
 
-  @Get('enrolled-users:id')
+  @Get('enrolled-users/:id')
   async getPaidUsers(@Param('id') id: string) {
     return await this.ordersService.getPaidUsers(id);
   }
-  @Get('total-earnings:id')
+  @Get('total-earnings/:id')
   async getTotalEarnings(@Param('id') id: string) {
     let total = await this.ordersService.getTotalEarnings(id);
     return { 'Total income': total };
   }
 
-  @Delete('delete-paid-user:id')
+  @Delete('delete-paid-user/:id')
   async deletePaidUser(@Param('id') id: string) {
     return await this.ordersService.deleteOrder(id);
   }
