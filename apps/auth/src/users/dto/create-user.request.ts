@@ -13,4 +13,6 @@ export class CreateUserRequest {
 
   isAdmin : boolean
 
+  isTeacher: boolean
+
 }

@@ -14,6 +14,9 @@ export class User extends AbstractDocument {
  
   @Prop()
   isAdmin : boolean
+
+  @Prop()
+  isTeacher: boolean
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
