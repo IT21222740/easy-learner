@@ -19,6 +19,7 @@ export class ProgressController {
     ): Promise<progress>{
         return this.progressService.create(progress);
     }
+    
 
     @Get(':userId/:courseId')
     async getProgress(
@@ -38,6 +39,8 @@ export class ProgressController {
         return this.progressService.findByUserId(userId);
     }
 
+    
+
 
     @Put('incrementCompleted/:userId/:courseId')
     async incrementCompleted(
@@ -46,4 +49,5 @@ export class ProgressController {
     ): Promise<void> {
         await this.progressService.incrementCompleted(userId, courseId);
     }
+    
 }
